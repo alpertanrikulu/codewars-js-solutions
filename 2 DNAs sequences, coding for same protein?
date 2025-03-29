@@ -1,0 +1,9 @@
+function codeForSameProtein(seq1,seq2){
+  //your code here - values loaded in the "codons" variable
+  
+  for (let i = 0; i < seq1.length - 2; i = i + 3) {
+    if(codons[seq1[i] + seq1[i + 1] + seq1[i + 2]] !== codons [seq2[i] + seq2[i + 1] + seq2[i + 2]]) 
+    return false;
+  }
+  return true;
+}
