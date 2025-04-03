@@ -1,0 +1,66 @@
+function add(a, b) {
+  let la = a
+    .split("")
+    .map((e) => Number(e))
+    .reverse();
+  let lb = b
+    .split("")
+    .map((e) => Number(e))
+    .reverse();
+  let greater;
+  let lower;
+
+  if (Math.max(la.length, lb.length) === la.length) {
+    greater = la;
+    lower = lb;
+  } else {
+    greater = lb;
+    lower = la;
+  }
+  let result = [];
+
+  let onHand = 0;
+
+  for (let i = 0; i < greater.length; i++) {
+    if (i >= lower.length) {
+      // lower bittiğinde yapılacaklar
+      if (onHand) {
+        const temporary = greater[i] + onHand;
+        if (temporary >= 10) {
+          result.unshift(Number(temporary.toString()[1]));
+          onHand = Number(temporary.toString()[0]);
+          if (i === greater.length - 1) result.unshift(onHand);
+        } else {
+          result.unshift(temporary);
+          onHand = 0;
+        }
+      } else {
+        result.unshift(greater[i]);
+      }
+    } else {
+      if (onHand) {
+        const temporary = greater[i] + lower[i] + onHand;
+        if (temporary >= 10) {
+          result.unshift(Number(temporary.toString()[1]));
+          onHand = Number(temporary.toString()[0]);
+          if (i === greater.length - 1) result.unshift(onHand);
+        } else {
+          result.unshift(temporary);
+          onHand = 0;
+        }
+      } else {
+        const temporary = greater[i] + lower[i];
+        if (temporary >= 10) {
+          result.unshift(Number(temporary.toString()[1]));
+          onHand = Number(temporary.toString()[0]);
+          if (i === greater.length - 1) result.unshift(onHand);
+        } else {
+          result.unshift(temporary);
+          onHand = 0;
+        }
+      }
+    }
+  }
+
+  return result.join("");
+}
