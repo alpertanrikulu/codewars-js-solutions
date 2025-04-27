@@ -1,0 +1,20 @@
+function gifts(number) {
+  
+  if (GIFTS[number]) return [GIFTS[number]];
+
+  let total = 0;
+  let result = [];
+  const reversedEntries = Object.entries(GIFTS).reverse();
+
+  for (let [key, value] of reversedEntries) {
+    key = Number(key);
+    if (key < number) {
+      if (total + key <= number) {
+        total = total + key;
+        result.push(value);
+      }
+    }
+  }
+
+  return result.sort();
+}
