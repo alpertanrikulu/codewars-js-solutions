@@ -1,0 +1,81 @@
+function decide(number, operator, value) {
+  if (operator === "+") {
+      return number + value
+    }
+  if (operator === "-") {
+      return number - value
+    }
+  if (operator === "/") {
+      return parseInt((number / value))
+    }
+  if (operator === "*") {
+      return number * value
+    }
+}
+
+function zero(value = false) {
+  if (Array.isArray(value)) {
+    return decide(0, value[0], value[1])
+  } else {
+    return 0;
+  }
+}
+function one(value = false) {
+  if (Array.isArray(value)) {
+    return decide(1, value[0], value[1])
+  } else {
+    return 1;
+  }}
+function two(value = false) {
+  if (Array.isArray(value)) {
+    return decide(2, value[0], value[1])
+  } else {
+    return 2;
+  }}
+function three(value = false) {
+  if (Array.isArray(value)) {
+    return decide(3, value[0], value[1])
+  } else {
+    return 3;
+  }}
+function four(value = false) {
+  if (Array.isArray(value)) {
+    return decide(4, value[0], value[1])
+  } else {
+    return 4;
+  }}
+function five(value = false) {
+  if (Array.isArray(value)) {
+    return decide(5, value[0], value[1])
+  } else {
+    return 5;
+  }}
+function six(value = false) {
+  if (Array.isArray(value)) {
+    return decide(6, value[0], value[1])
+  } else {
+    return 6;
+  }}
+function seven(value = false) {
+  if (Array.isArray(value)) {
+    return decide(7, value[0], value[1])
+  } else {
+    return 7;
+  }}
+function eight(value = false) {
+  if (Array.isArray(value)) {
+    return decide(8, value[0], value[1])
+  } else {
+    return 8;
+  }}
+function nine(value = false) {
+  if (Array.isArray(value)) {
+    return decide(9, value[0], value[1])
+  } else {
+    return 9;
+  }}
+
+function plus(value) {return ['+', value]}
+function minus(value) {return ['-', value]}
+function times(value) {return ['*', value]}
+function dividedBy(value) {return ['/', value]}
