@@ -1,0 +1,23 @@
+function keywordCipher(string, keyword) {
+  //your code here
+
+  const alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," ",];
+  const encKeyword = new Set(keyword);
+  const encAlphabet = alphabet.filter((e) => {
+    if (!encKeyword.has(e)) return e;
+  });
+  const enc = [...encKeyword, ...encAlphabet];
+
+  const result = [];
+  string
+    .toLowerCase()
+    .split("")
+    .forEach((e) => {
+      alphabet.forEach((j, i) => {
+        if (e === j) {
+          result.push(enc[i]);
+        }
+      });
+    });
+  return result.join("");
+}
