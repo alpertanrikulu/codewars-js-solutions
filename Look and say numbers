@@ -1,0 +1,40 @@
+function lookAndSay(data, len) {
+  let result = [];
+  for (let i = 0; i < len; i++) {
+    let tempData;
+    if (result.length === 0) {
+      tempData = data.split("").map((e) => Number(e));
+    } else {
+      tempData = result[result.length - 1].split("");
+    }
+
+    let prodData = [];
+    if (tempData.length === 1) {
+      prodData.push(1);
+      prodData.push(tempData[0]);
+    } else {
+      let counter = 1;
+      for (let j = 1; j < tempData.length; j++) {
+        if (tempData[j - 1] === tempData[j]) {
+          counter++;
+          if (j === tempData.length - 1) {
+            prodData.push(counter);
+            prodData.push(tempData[j]);
+          }
+        } else {
+          prodData.push(counter);
+          prodData.push(tempData[j - 1]);
+          if (j === tempData.length - 1) {
+            prodData.push(1);
+            prodData.push(tempData[j]);
+          }
+          counter = 1;
+        }
+      }
+    }
+
+    result.push(prodData.join(""));
+  }
+
+  return result;
+}
