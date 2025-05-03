@@ -1,0 +1,17 @@
+function digitalRoot(n) {
+  let tempResult = n;
+  let moreDigit = true;
+  while (moreDigit) {
+    const mySum = tempResult
+      .toString()
+      .split("")
+      .map((e) => Number(e))
+      .reduce((acc, e) => acc + e, 0);
+    if (mySum.toString().length === 1) {
+      moreDigit = false;
+      return mySum;
+    } else {
+      tempResult = mySum;
+    }
+  }
+}
