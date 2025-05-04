@@ -1,0 +1,14 @@
+function interleave(...lists) {
+  let result = [];
+
+  const outerLoopLength = Math.max(...lists.map((e) => e.length));
+
+  let counter = 0;
+  for (let j = 0; j < outerLoopLength; j++) {
+    for (let i = 0; i < lists.length; i++) {
+      result.push(lists[i][counter] !== undefined ? lists[i][counter] : null);
+    }
+    counter++;
+  }
+  return result;
+}
