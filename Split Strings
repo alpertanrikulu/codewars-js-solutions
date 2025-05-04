@@ -1,0 +1,4 @@
+function solution(str) {
+  const regexp = /../g;
+  return (str + "_").match(regexp) || [];
+}
